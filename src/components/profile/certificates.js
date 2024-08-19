@@ -1,72 +1,45 @@
 import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Marquee from 'react-fast-marquee';
 import 'tailwindcss/tailwind.css';
+import Img1 from '../images/Azure-DevOps_page-0001.jpg';
+import Img2 from '../images/Python Programming_page-0001.jpg';
+import Img3 from '../images/CLA_page-0001.jpg';
+import Img4 from '../images/Responsive web design.jpg';
+import Img5 from '../images/iicc_certificate_participation_page-0001.jpg';
+import Img6 from '../images/iicc_certificate_round2_page-0001.jpg';
+import Img7 from '../images/part-1_page-0001.jpg';
+import Img8 from '../images/part-2_page-0001.jpg';
 
 const certificates = [
-  {
-    title: 'Certificate 1',
-    organization: 'Organization 1',
-    duration: 'Duration 1',
-    description: 'Description 1',
-  },
-  {
-    title: 'Certificate 2',
-    organization: 'Organization 2',
-    duration: 'Duration 2',
-    description: 'Description 2',
-  },
-  {
-    title: 'Certificate 3',
-    organization: 'Organization 3',
-    duration: 'Duration 3',
-    description: 'Description 3',
-  },
-  // Add more certificates as needed
+  { img: Img1, alt: "Azure-DevOps" },
+  { img: Img2, alt: "Python Programming" },
+  { img: Img3, alt: "CLA",  },
+  { img: Img4, alt: "Responsive Web Design" },
+  { img: Img5, alt: "IICC Participation" },
+  { img: Img6, alt: "IICC Round 2" },
+  { img: Img7, alt: "Part 1" },
+  { img: Img8, alt: "Part 2" },
 ];
 
 const Certificates = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
-    <section id="certificates" className="py-20 bg-custom-gradient">
+    <section id="certificates" className="py-20 bg-custom-gradient font-poppins">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-8">Certificates</h2>
-        <Slider {...settings}>
+        <h2 className="text-4xl text-white font-bold text-center mb-8">Certificates</h2>
+        <Marquee pauseOnHover speed={100} className="relative">
           {certificates.map((certificate, index) => (
-            <div key={index} className="p-4">
-              <div className="bg-white shadow-lg rounded-lg p-6 mb-4">
-                <h3 className="text-2xl font-semibold mb-2">{certificate.title}</h3>
-                <p className="text-gray-600 mb-2">{certificate.organization}</p>
-                <p className="text-gray-600 mb-2">{certificate.duration}</p>
-                <p>{certificate.description}</p>
+            <div key={index} className="relative w-140 h-64 flex-shrink-0 p-4">
+              <div className="relative w-full h-full">
+                <img
+                  src={certificate.img}
+                  alt={certificate.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+               
               </div>
             </div>
           ))}
-        </Slider>
+        </Marquee>
       </div>
     </section>
   );

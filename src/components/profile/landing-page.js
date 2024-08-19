@@ -8,6 +8,7 @@ import Certificates from './certificates';
 import Education from './education';
 import Contact from './contact';
 import Footer from './footer';
+import WorkExperience from './work-exprience';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Home />
       <About />
+      <WorkExperience />
       <Projects />
       <Skills />
       <Certificates />

@@ -1,42 +1,62 @@
 import React from "react";
 
+const educationData = [
+  {
+    year: "2019 - 2023 (B.Tech)",
+    description: (
+      <span>
+        <span className="block">Rajastahn Technical Univercity Kota, Rajasthan</span>
+        <span className="block">Computer Science & Engineering</span>
+        <span className="block">Percentage: 80</span>
+      </span>
+    ),
+    bgColor: "bg-red-500",
+  },
+  {
+    year: "2017 - 2019 (11th & 12th)",
+    description: (
+      <span>
+        <span className="block">Janta College Muzaffarpur, Bihar</span>
+        <span className="block">Science</span>
+        <span className="block">Percentage: 70</span>
+      </span>
+    ),
+    bgColor: "bg-green-500",
+  },
+  {
+    year: "2016 - 2017 (10th)",
+    description: (
+      <span>
+        <span className="block">R.K. High School Baruraj, Muzaffarpur, Bihar</span>
+        <span className="block">Percentage: 82.60</span>
+      </span>
+    ),
+    bgColor: "bg-blue-500",
+  },
+];
+
 const Education = () => {
   return (
-    <section id="education" className="py-20">
+    <section id="education" className="py-20 bg-gray-900 text-white font-poppins">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-8">My Education</h2>
-        <div className="flex flex-wrap justify-center">
-          {[
-            {
-              institution: "Galgotias University",
-              year: "2019-2023",
-              degree: "B.Tech in Computer Science Engineering",
-              grade: "7.0/10",
-              img: "img/Galgotias-university-1.png"
-            },
-            {
-              institution: "Jawahar Navodaya Vidyalaya, Jehanabad",
-              year: "2017-2019",
-              degree: "Class 12th",
-              grade: "81%",
-              img: "img/Jnv-jehanabad.jpg"
-            },
-            {
-              institution: "Jawahar Navodaya Vidyalaya, Jehanabad",
-              year: "2015-2016",
-              degree: "Class 10th",
-              grade: "89%",
-              img: "img/Jnv-jehanabad.jpg"
-            }
-          ].map((edu, index) => (
-            <div key={index} className="w-full md:w-1/3 p-4">
-              <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src={edu.img} alt={edu.institution} className="w-full h-64 object-cover" />
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold text-blue-500 mb-2">{edu.institution}</h3>
-                  <p>{edu.year}</p>
-                  <p>{edu.degree}</p>
-                  <p>{edu.grade}</p>
+        <h2 className="text-4xl font-bold text-center mb-8">Education</h2>
+        <div className="relative flex flex-col items-center">
+          <div className="border-l-4 border-gray-600 absolute h-full left-1/2 transform -translate-x-1/2"></div>
+          {educationData.map((edu, index) => (
+            <div
+              key={index}
+              className={`w-full md:w-1/2 p-4 flex ${index % 2 === 0 ? "justify-end" : "justify-start"} ${
+                index % 2 === 0 ? "self-start" : "self-end"
+              }`}
+            >
+              <div className="relative w-3/4">
+                {/* Circle indicator */}
+                <div className={`absolute w-6 h-6 ${edu.bgColor} rounded-full left-1/2 transform -translate-x-1/2 top-2`}></div>
+
+                {/* Education content box */}
+                <div className={`p-4 ${edu.bgColor} text-white rounded-lg shadow-lg`}>
+                  <h3 className="text-xl font-bold">{edu.year}</h3>
+                  <p className="mt-2">{edu.description}</p>
                 </div>
               </div>
             </div>

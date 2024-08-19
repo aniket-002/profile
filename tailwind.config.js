@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(to bottom right, #2a4858, #839fad)',
       },
