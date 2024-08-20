@@ -3,7 +3,7 @@ import Linkedin from '../images/image.png';
 import Twitter from '../images/twitter.png';
 import Insta from '../images/instagram (1).png';
 import Facebook from '../images/facebook (1).png';
-import Github from '../images/github.png';
+
 
 const Footer = () => {
   return (
