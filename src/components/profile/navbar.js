@@ -29,7 +29,7 @@ const Navbar = () => {
             </a>
             <a
               href="https://drive.google.com/drive/folders/1N0Ylzc55IiizFpZgecFHq9KIXBBm6dSS?usp=sharing"
-              target='_blank'
+              rel="noreferrer"
               download
               className="flex items-center bg-red-600 text-white px-3 py-1.5 rounded-md text-sm hover:bg-red-700 transition"
             >
