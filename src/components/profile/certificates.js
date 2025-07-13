@@ -23,9 +23,9 @@ const certificates = [
 
 const Certificates = () => {
   return (
-    <section id="certificates" className="py-20 bg-custom-gradient font-poppins">
+    <section id="certificates" className="md:py-16 py-10 bg-[#000000] font-poppins">
       <div className="container mx-auto">
-        <h2 className="text-4xl text-white font-bold text-center mb-8">Certificates</h2>
+        <h2 className="md:text-4xl text-[28px] text-white font-bold text-center mb-8">Certificates</h2>
         <Marquee pauseOnHover speed={100} className="relative">
           {certificates.map((certificate, index) => (
             <div key={index} className="relative w-140 h-64 flex-shrink-0 p-4">
