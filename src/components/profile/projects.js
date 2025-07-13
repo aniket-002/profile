@@ -35,9 +35,9 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-custom-gradient font-poppins">
+    <section id="projects" className="md:py-16 py-10  bg-[#000000] font-poppins">
       <div className="container mx-auto">
-        <h2 className="text-4xl text-white font-bold text-center mb-8">My Projects</h2>
+        <h2 className="md:text-4xl text-[28px] text-white font-bold text-center mb-8">My Projects</h2>
         <Marquee gradient={false} speed={100} pauseOnHover={true}>
           {projects.map((project, index) => (
             <div key={index} className=" p-4 flex-shrink-0">

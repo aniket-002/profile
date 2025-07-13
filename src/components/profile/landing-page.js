@@ -9,16 +9,18 @@ import Education from './education';
 import Contact from './contact';
 import Footer from './footer';
 import WorkExperience from './work-exprience';
+import SkillsSlider from './skils_slider';
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <Navbar />
       <Home />
+      <SkillsSlider />
       <About />
       <WorkExperience />
       <Projects />
-      <Skills />
+      {/* <Skills /> */}
       <Certificates />
       <Education />
       <Contact />

@@ -1,45 +1,93 @@
-import React from 'react';
-import Img from '../images/profile.jpg';
-import Github from '../images/github.png';
+import React, { useState, useEffect } from "react";
+import { FaLaptopCode, FaMobileAlt, FaServer, FaCloudUploadAlt } from "react-icons/fa";
+import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
 
 const About = () => {
+  const [startTyping, setStartTyping] = useState(false);
+  const [typingDone, setTypingDone] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartTyping(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const section = document.getElementById("about-description");
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
+
   return (
-    <section id="about" className="py-20  font-poppins">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-black text-3xl sm:text-4xl font-bold">About me</h2>
-        <div className="flex flex-wrap mt-10 items-center">
-          <div className="w-full md:w-1/2">
-            <img src={Img} alt="About" className="w-full md:w-3/4 rounded-lg shadow-lg mx-auto bg-cover"/>
-          </div>
-          <div className="w-full md:w-1/2 mt-10 md:mt-0 flex flex-col items-center md:items-start justify-center text-justify">
-            <div className="text-2xl sm:text-3xl text-red-600 text-center md:text-left"> 
-              Hii, I'm Aniket Anand <span className="typing-2"></span>
+    <section id="about" className="bg-[#000000] md:py-16 pt-12 pb-14  text-white font-poppins overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        {/* Left side: Services with fade-in from left */}
+        <motion.div
+          className="space-y-10 relative md:order-1 order-2"
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          {[
+            { icon: <FaLaptopCode />, label: "Website Development" },
+            { icon: <FaMobileAlt />, label: "App Development" },
+            { icon: <FaServer />, label: "Website Hosting" },
+            { icon: <FaCloudUploadAlt />, label: "App Hosting & Deployment" },
+          ].map((item, index) => (
+            <div key={index} className="flex items-center space-x-4 relative md:pl-12 pl-0">
+              <div className="md:text-3xl text-xl text-red-500">{item.icon}</div>
+              <h3 className="md:text-xl text-md font-medium">{item.label}</h3>
             </div>
-            <p className="mt-4 text-base sm:text-lg text-center md:text-left">
-              A passionate Frontend Web Developer with a solid foundation in modern web technologies, including React.js, JavaScript, HTML, and CSS. With experience working on multiple dynamic projects, I thrive in collaborative environments, contributing to innovative solutions with a knowledgeable and skilled team. My commitment to continuous learning drives me to stay at the forefront of technology, always eager to embrace new challenges and expand my expertise. I'm dedicated to delivering high-quality work that not only meets but exceeds expectations, ensuring impactful and user-friendly web experiences.
-            </p>
-            <div className="mt-6 flex items-center space-x-4">
-              <a
-                href="https://drive.google.com/drive/folders/1Q7WnlpREk2uCCABxApvyxMetFGqRHbmV?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-2 bg-blue-500 text-white rounded-full"
-              >
-                Get-CV
-              </a>
-              <a
-                href="https://github.com/aniket-002"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={Github}
-                  alt="Github"
-                  className="w-6 h-6 sm:w-8 sm:h-8 hover:opacity-75 transition-opacity"
-                />
-              </a>
-            </div>
+          ))}
+        </motion.div>
+
+        {/* Right side: Typing animation */}
+        <div className="prder-2 md:order-1">
+          <h2 className="md:text-4xl text-[28px] font-bold mb-6">About Me</h2>
+          <div id="about-description" className="text-gray-300 text-base leading-relaxed min-h-[230px]">
+            {startTyping && (
+              <TypeAnimation
+                sequence={[
+                  `I began my journey in the tech world as a Software Intern, where I focused on building strong fundamentals and solving real-world problems. Through consistent effort, dedication, and a commitment to delivering high-quality work, I earned a promotion to Associate Software Engineer. Today, as a Software Engineer, I continue to thrive by learning, innovating, and creating impactful solutions that blend technical excellence with practical value.\n\nI also specialize in app hosting, from building applications to submitting them for review and making them live for users on platforms like the Play Store or App Store.`,
+                  () => setTypingDone(true),
+                ]}
+                speed={50}
+                style={{ whiteSpace: "pre-line", display: "block" }}
+                cursor
+              />
+            )}
           </div>
+
+          {/* Stats appear after typing completes */}
+          {typingDone && (
+            <motion.div
+              className="grid grid-cols-3 gap-6 text-center mt-10"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              <div>
+                <h3 className="md:text-3xl text-xl font-bold text-red-500">5+</h3>
+                <p className="text-sm mt-1 text-gray-400">Products Contributed To</p>
+              </div>
+              <div>
+                <h3 className="md:text-3xl text-xl font-bold text-red-500">95%</h3>
+                <p className="text-sm mt-1 text-gray-400">Team Satisfaction Score</p>
+              </div>
+              <div>
+                <h3 className="md:text-3xl text-xl font-bold text-red-500">1.5+</h3>
+                <p className="text-sm mt-1 text-gray-400">Years of Experience</p>
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
