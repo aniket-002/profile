@@ -3,7 +3,6 @@ import Navbar from './navbar';
 import Home from './home';
 import About from './about';
 import Projects from './projects';
-import Skills from './skills';
 import Certificates from './certificates';
 import Education from './education';
 import Contact from './contact';
@@ -20,7 +19,6 @@ function App() {
       <About />
       <WorkExperience />
       <Projects />
-      {/* <Skills /> */}
       <Certificates />
       <Education />
       <Contact />
