@@ -71,7 +71,7 @@ const Education = () => {
               <div className="relative w-full md:w-3/4">
                 {/* Timeline dot (only on md+) */}
                 <div
-                  className={`hidden md:block absolute w-6 h-6 ${edu.bgColor} rounded-full left-1/2 transform -translate-x-1/2 top-2`}
+                  className={` ${edu.bgColor}`}
                 ></div>
 
                 {/* Card */}
