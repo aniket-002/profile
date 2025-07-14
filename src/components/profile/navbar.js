@@ -55,8 +55,10 @@ const Navbar = () => {
             <FiMail className="mr-2" /> aniket31032001@gmail.com
           </a>
           <a
-            href="/Aniket_Resume.pdf"
-            download
+              href="https://drive.google.com/drive/folders/1N0Ylzc55IiizFpZgecFHq9KIXBBm6dSS?usp=sharing"
+                          rel="noreferrer"
+
+              download
             className="flex items-center bg-red-600 text-white px-3 py-2 rounded-md text-base hover:bg-red-700 transition w-max"
             onClick={() => setOpen(false)}
           >
