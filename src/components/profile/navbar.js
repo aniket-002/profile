@@ -48,11 +48,11 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-black px-4 py-4 space-y-3">
           <a
-            href="mailto:aniket.email@example.com"
+            href="mailto:aniket31032001@gmail.com"
             className="flex items-center text-white text-base"
             onClick={() => setOpen(false)}
           >
-            <FiMail className="mr-2" /> aniket.email@example.com
+            <FiMail className="mr-2" /> aniket31032001@gmail.com
           </a>
           <a
             href="/Aniket_Resume.pdf"
